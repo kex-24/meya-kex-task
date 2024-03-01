@@ -2,7 +2,8 @@ name: Dispatch
 
 on:
   issues:
-    types: [opened]
+    types: 
+      - opened
 
 jobs:
   parse-issue-title:
@@ -14,7 +15,7 @@ jobs:
         id: parse-title
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.API_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
               const issueNumber = "${{ github.event.issue.number }}";
               const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
@@ -60,7 +61,7 @@ jobs:
       - name: Update issue
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.API_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
             script: |
               github.rest.issues.update({
                 issue_number: "${{ github.event.issue.number }}",
