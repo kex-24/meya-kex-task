@@ -20,3 +20,26 @@ jobs:
             const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
             return issueTitle;
           result-encoding: string
+
+  dispatch-to-handler:
+    needs: [parse-issue-title]
+    runs-on: ubuntu-latest
+    if: needs.parse-issue-title.outputs.result != 'none'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/workflows/requirements.txt
+
+      - name: Create repo
+        uses: actions/github-script@v6
+        with:
+          script: |
+            title="${{ needs.parse-issue-title.outputs.result }}"
+            github.rest.repos.createForAuthenticatedUser({
+              name: "${{ env.title }}"
+            });
