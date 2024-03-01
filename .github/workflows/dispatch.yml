@@ -13,6 +13,7 @@ jobs:
       - name: Parse issue title
         id: parse-title
         uses: actions/github-script@v6
+        with:
         script: |
           const issueNumber = "${{ github.event.issue.number }}";
           const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
@@ -40,7 +41,7 @@ jobs:
             name: 'test-repo'
           }); 
           html = json.html_url
-          echo "title=boll" = >> "$GITHUB.ENV"
+          echo title=boll" = >> "$GITHUB.ENV"
           echo "html" >> "$GITHUB_ENV"
 
       # - name: Run handler
