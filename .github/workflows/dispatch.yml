@@ -14,11 +14,11 @@ jobs:
         id: parse-title
         uses: actions/github-script@v6
         with:
-        script: |
-          const issueNumber = "${{ github.event.issue.number }}";
-          const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
-          return issueTitle;
-        result-encoding: string
+          script: |
+            const issueNumber = "${{ github.event.issue.number }}";
+            const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
+            return issueTitle;
+          result-encoding: string
 
   dispatch-to-handler:
     needs: [parse-issue-title]
