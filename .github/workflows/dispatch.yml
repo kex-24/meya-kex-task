@@ -41,7 +41,8 @@ jobs:
             name: 'test-repo'
           }); 
           html = json.html_url
-          echo html >> "$GITHUB_ENV"
+          echo "title=boll" = >> "$GITHUB.ENV"
+          echo "html" >> "$GITHUB_ENV"
 
       # - name: Run handler
       #   continue-on-error: true
