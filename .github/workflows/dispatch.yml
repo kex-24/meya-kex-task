@@ -36,7 +36,7 @@ jobs:
       - name: Create repo
         uses: actions/github-script@v6
         with:
-          github-token: '${{ secrets.REPO_TOKEN }}'
+          github-token: '${{ secrets.REPO_SECRET }}'
           script: |
             github.rest.repos.createFork({
             owner: 'kex-24',
