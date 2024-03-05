@@ -40,6 +40,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.repos.createForAuthenticatedUser({
+            github.rest.repos.createInOrg({
+              org: kex-24,
               name: "${{ needs.parse-issue-title.outputs.result }}"
             });
