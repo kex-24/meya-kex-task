@@ -38,9 +38,10 @@ jobs:
       - name: Create repo
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.CREATE_TOKEN }}
+          github-token: ${{ secrets.MY_TOKEN }}
           script: |
             github.rest.repos.createInOrg({
-              org: "kex-24",
-              name: "${{ needs.parse-issue-title.outputs.result }}"
+            org: 'kex-24',
+            namE: "${{ needs.parse-issue-title.outputs.result }}"
             });
+      
