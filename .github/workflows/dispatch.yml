@@ -41,6 +41,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.rest.repos.createInOrg({
-              org: kex-24,
+              org: "kex-24",
               name: "${{ needs.parse-issue-title.outputs.result }}"
             });
