@@ -34,16 +34,13 @@ jobs:
       #   run: |
       #     python -m pip install --upgrade pip
       #     pip install -r .github/workflows/requirements.txt
-
-      - name: Create repo
-        steps:
-          - name: Use Node.js
-            uses: actions/setup-node@v2
-          - name: Creating GitHub Organization Repository
-            uses: repo-ctrl/create-repo-action@main 
-            id: create-repo
-            with:
-              repo-name: "${{ needs.parse-issue-title.outputs.result }}"
-              org-admin-token: '${{ secrets.CREATE_TOKEN }}'
-          - name: Log URL to the repo
-            run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+      - name: Creating GitHub Organization Repository
+        uses: repo-ctrl/create-repo-action@main 
+        id: create-repo
+        with:
+          repo-name: "${{ needs.parse-issue-title.outputs.result }}"
+          org-admin-token: '${{ secrets.CREATE_TOKEN }}'
+      - name: Log URL to the repo
+        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
