@@ -25,7 +25,6 @@ jobs:
     needs: [parse-issue-title]
     runs-on: ubuntu-latest
     if: needs.parse-issue-title.outputs.result != 'none'
-
     steps:
       # - name: Checkout repository
       #   uses: actions/checkout@v3
@@ -34,11 +33,10 @@ jobs:
       #   run: |
       #     python -m pip install --upgrade pip
       #     pip install -r .github/workflows/requirements.txt
-
       - name: Create repo
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.CREATE_TOKEN }}
+          github-token: ${{ secrets.REPO_SECRET }}
           script: |
             github.rest.repos.createInOrg({
             org: 'kex-24',
