@@ -41,6 +41,6 @@ jobs:
         id: create-repo
         with:
           repo-name: "${{ needs.parse-issue-title.outputs.result }}"
-          org-admin-token: '${{ secrets.MY_TOKEN }}'
+          org-admin-token: '${{ secrets.REPO_SECRET }}'
       - name: Log URL to the repo
         run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
