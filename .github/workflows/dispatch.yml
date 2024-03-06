@@ -20,9 +20,27 @@ jobs:
             const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
             return issueTitle;
           result-encoding: string
+    
+  get-content:
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.get-sha.outputs.result }}
+    steps:
+      - name: get sha
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const content = github.rest.repos.getContent({
+              owner: "kex-24",
+              repo: "kex-24",
+              path: "README.md"
+            })
+            return content.sha;
+          result-encoding: string
 
   dispatch-to-handler:
-    needs: [parse-issue-title]
+    needs: [parse-issue-title, get-content]
     runs-on: ubuntu-latest
     if: needs.parse-issue-title.outputs.result != 'none'
     steps:
@@ -42,14 +60,15 @@ jobs:
           python .github/workflows/generate_exercise.py README.md theme >> "$GITHUB_ENV"
           echo "$EOF" >> "$GITHUB_ENV"
 
+
       - name: update README
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.rest.repos.createOrUpdateFileContents({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              owner: "kex-24",
+              repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
               content: "${{ env.content }}",
@@ -61,6 +80,7 @@ jobs:
                 name: "kexxers",
                 email: "24@kex.se",
               }
+              sha: "${{ needs.get-sha.outputs.result }}"
             })
 
             
