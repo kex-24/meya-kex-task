@@ -58,17 +58,15 @@ jobs:
                 sha = Buffer.from(result.data.sha).toString();
               }
             );
-  
-            let cont = ${{ content }}
 
-            let stuff = btoa(cont);
+            const {content} = btoa(process.env.content)
             
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: stuff,
+              content: `${content}`,
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"
