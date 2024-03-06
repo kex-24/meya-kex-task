@@ -58,11 +58,8 @@ jobs:
                 sha = Buffer.from(result.data.sha).toString();
               }
             );
-  
-            let cont = "${{ env.content }}";
-            let bajs = cont.toString();
-            console.log(bajs);
-            let stuff = btoa(bajs);
+
+            let stuff = btoa("hej");
             
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
