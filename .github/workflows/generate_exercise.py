@@ -3,8 +3,6 @@ import sys
 import openai
 import json
 
-import base64
-
 def main(key, model_task, theme):
     openai.api_key = key
 
@@ -22,13 +20,14 @@ def main(key, model_task, theme):
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo-0125",
             messages=[
-                {"role": "system", "content": "You are a teacher that wants to help a student by extending their programming task with a new exercise. Here is their overall task:"},
+                {"role": "system", "content": "You are a teacher that wants to help a student by extending their programming task with an exercise. Here is the model task:"},
                 {"role": "assistant", "content": model},
-                {"role": "assistant", "content": "Provide an exercise that builds upon the original series of exercises and but has the following theme:"},
+                {"role": "assistant", "content": "Provide an exercise that imitates and goes through the same exercises as the provided model task but has the following theme:"},
                 {"role": "assistant", "content": theme},
-                {"role": "assistant", "content": "Format the exercise in markdown and make sure it is a valid JSON string"},
+                {"role": "assistant", "content": "Format the exercise in markdown similar to the model task"},
             ]
         )
+        
         print(response.choices[0].message.content)
 
         fix_apostrophe = (response.choices[0].message.content).replace("\'","'")
