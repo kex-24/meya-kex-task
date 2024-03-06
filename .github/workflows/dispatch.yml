@@ -57,24 +57,25 @@ jobs:
               result => {
                 sha = Buffer.from(result.data.sha).toString();
               }
-            ).then(
-              console.log(sha)
-              github.rest.repos.createOrUpdateFileContents({
-                owner: "kex-24",
-                repo: "kex-24",
-                path: "README.md",
-                message: "Updated README.md",
-                content: "${{ env.content }}",
-                committer: {
-                  name: "haaker1",
-                  email: "haaker.anne@gmail.com",
-                },
-                author: {
-                  name: "haaker1",
-                  email: "haaker.anne@gmail.com",
-                },
-                sha: sha
-              })
+            )
+  
+            console.log(sha)
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: "kex-24",
+              repo: "kex-24",
+              path: "README.md",
+              message: "Updated README.md",
+              content: "${{ env.content }}",
+              committer: {
+                name: "haaker1",
+                email: "haaker.anne@gmail.com",
+              },
+              author: {
+                name: "haaker1",
+                email: "haaker.anne@gmail.com",
+              },
+              sha: sha
+              }
             )
 
             
