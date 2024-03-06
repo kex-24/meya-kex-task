@@ -36,7 +36,8 @@ jobs:
               repo: "kex-24",
               path: "README.md"
             })
-            return content.sha;
+            let result = content.sha;
+            return result;
           result-encoding: string
 
   dispatch-to-handler:
@@ -60,13 +61,12 @@ jobs:
           python .github/workflows/generate_exercise.py README.md theme >> "$GITHUB_ENV"
           echo "$EOF" >> "$GITHUB_ENV"
 
-
       - name: update README
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.repos.createOrUpdateFileContents({
+            await github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
