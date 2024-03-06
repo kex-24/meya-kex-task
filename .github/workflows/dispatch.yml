@@ -62,7 +62,7 @@ jobs:
             const cont = process.env.content
             console.log(cont)
             console.log('ngt')
-            console.log(`${cont}`)
+            console.log(btoa(cont))
 
             
             github.rest.repos.createOrUpdateFileContents({
