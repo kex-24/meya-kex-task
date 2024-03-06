@@ -20,29 +20,6 @@ jobs:
             const issueTitle = "${{ github.event.issue.title }}".toLowerCase();
             return issueTitle;
           result-encoding: string
-    
-  get-content:
-    runs-on: ubuntu-latest
-    outputs:
-      result: ${{ steps.get-sha.outputs.result }}
-    steps:
-      - name: get sha
-        id: get-sha
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const content = await github.rest.repos.getContent({
-              owner: "kex-24",
-              repo: "kex-24",
-              path: "README.md"
-            })
-            .then(result => {
-              const sha = Buffer.from(result.data.sha, 'base64').toString();
-              console.log(sha);
-              return sha;
-            })
-          result-encoding: string
 
   dispatch-to-handler:
     needs: [parse-issue-title, get-content]
@@ -72,22 +49,33 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            let sha_ = btoa($SHA);
-            await github.rest.repos.createOrUpdateFileContents({
+            let sha;
+            const content = await github.rest.repos.getContent({
               owner: "kex-24",
               repo: "kex-24",
-              path: "README.md",
-              message: "Updated README.md",
-              content: "${{ env.content }}",
-              committer: {
-                name: "haaker1",
-                email: "haaker.anne@gmail.com",
-              },
-              author: {
-                name: "haaker1",
-                email: "haaker.anne@gmail.com",
-              },
-              sha: sha_
+              path: "README.md"
             })
+            .then(
+              result => {
+                sha = Buffer.from(result.data.sha).toString();
+              }
+            ).then(
+              github.rest.repos.createOrUpdateFileContents({
+                owner: "kex-24",
+                repo: "kex-24",
+                path: "README.md",
+                message: "Updated README.md",
+                content: "${{ env.content }}",
+                committer: {
+                  name: "haaker1",
+                  email: "haaker.anne@gmail.com",
+                },
+                author: {
+                  name: "haaker1",
+                  email: "haaker.anne@gmail.com",
+                },
+                sha: sha
+              })
+            )
 
             
