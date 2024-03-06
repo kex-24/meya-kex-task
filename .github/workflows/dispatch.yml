@@ -44,7 +44,7 @@ jobs:
           fi
 
       - name: update README
-       uses: actions/github-script@v6
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.CREATE_TOKEN }}
           script: |
