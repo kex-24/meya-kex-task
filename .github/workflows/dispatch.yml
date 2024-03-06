@@ -56,12 +56,24 @@ jobs:
             .then(
               result => {
                 sha = Buffer.from(result.data.sha).toString();
-                console.log("Inside then")
-                console.log(sha);
               }
             );
   
-            console.log("Sha outside:");
-            console.log(sha);
-            
+            github.rest.repos.createOrUpdateFileContents({
+              owner: "kex-24",
+              repo: "kex-24",
+              path: "README.md",
+              message: "Updated README.md",
+              content: "${{ env.content }}",
+              committer: {
+                name: "haaker1",
+                email: "haaker.anne@gmail.com"
+              },
+              author: {
+                name: "haaker1",
+                email: "haaker.anne@gmail.com"
+              },
+              sha: sha
+            });
+
             
