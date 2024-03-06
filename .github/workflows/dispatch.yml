@@ -66,7 +66,7 @@ jobs:
               repo: "context.repo.repo",
               path: "README.md",
               message: "Updated README.md",
-              content: btoa(cont),
+              content: btoa(process.env.content),
               committer: {
                 name: context.actor,
                 email: context.actor
