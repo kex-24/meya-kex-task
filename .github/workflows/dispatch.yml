@@ -64,7 +64,7 @@ jobs:
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: "${{ env.content }}",
+              content: btoa("Hello World!"),
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"
