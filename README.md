@@ -1,51 +1,46 @@
-# Determine the Shape
+# Welcome to the Farmyard Challenge!
 
-In this assignment, you will work with Java classes to determine the types of shapes - triangles and rectangles. You will practice using `if` and `else` statements, as well as writing methods to calculate the area of shapes.
+In this exercise, you will dive into the world of farm animals and create a Java class to model various creatures that reside on a farm.
 
 ### Deadline
-This assignment should be completed by the due date of **Friday, 30th September**.
+Please complete this task before the upcoming exercise on **Monday, 3rd of November**.
 
 ### Instructions
-Refer to the course instructions for information on how to complete and submit the assignment.
+For detailed instructions on how to complete and submit the assignment, refer to the course website.
 
 ### Preparation
-Make sure to review the course material on object-oriented programming and class design in Java.
+Make sure to review the concepts of Object-Oriented Programming and class design before attempting this task. You can explore the relevant OLI material or official Java documentation to refresh your knowledge.
 
-### Learning Goals
 
-1. Understanding branching logic (`if` and `else` statements).
-2. Implementing class constructors and methods.
-3. Utilizing mathematical formulas to calculate areas of shapes.
+### Task Description
 
-### Assignment
+In the fertile lands of our farm, we have various animals that roam around. Your task is to create a Java class to model these farm animals. To get started, create a new Java file called `FarmAnimal.java` in the `src` folder.
 
-#### Exercise 1.0 - Triangle Class
-Start by creating a new Java class called `Triangle` in the provided `src` directory. The `Triangle` class should have three fields of type `int` representing the sides of the triangle - `side1`, `side2`, and `side3`. Create a constructor for the `Triangle` class that initializes these three sides using three integer parameters.
+### Exercise 1: Define the FarmAnimal Class
+Define a class called `FarmAnimal` with the following instance fields:
+- `String name` to store the name of the animal
+- `int age` to store the age of the animal
+- `String sound` to store the sound the animal makes
 
-#### Exercise 1.1 - Valid Triangle Check
-Implement a method in the `Triangle` class called `isValidTriangle()` that returns a `boolean` value indicating whether the three sides of the triangle form a valid triangle according to the *triangle inequality* principle. The method should return `true` if the sides can form a triangle, and `false` otherwise.
+Implement a constructor for the class that takes the name, age, and sound as parameters and initializes the instance fields.
 
-#### Exercise 1.2 - Triangle Type
-Add a method called `getTriangleType()` in the `Triangle` class that returns a `String` representing the type of triangle based on its sides - "Equilateral" for all sides equal, "Isosceles" for two sides equal, and "Scalene" for no sides equal.
+### Exercise 2: Create Farm Animals
+In your `main` method, create instances of different farm animals such as cows, chickens, and pigs using the constructor you implemented in Exercise 1. Assign appropriate values to the `name`, `age`, and `sound` fields of each animal.
 
-#### Exercise 1.3 - Triangle Area Calculation
-Now, implement a method `calculateArea()` in the `Triangle` class that calculates the area of the triangle using Heron's formula. You can create a helper method to calculate the semi-perimeter for this calculation.
+### Exercise 3: Print Animal Information
+Implement a method called `printInfo()` within the `FarmAnimal` class. This method should print out the information about the animal, including its name, age, and the sound it makes.
 
-#### Exercise 2.0 - Rectangle Class
-Create a new Java class called `Rectangle` in the `src` directory. The `Rectangle` class should have two fields representing the length and width of the rectangle. Add a constructor to initialize these two fields using integer parameters.
+### Exercise 4: Interact with the Animals
+In your `main` method, call the `printInfo()` method for each farm animal you created to display their information to the console.
 
-#### Exercise 2.1 - Rectangle Area Calculation
-In the `Rectangle` class, implement a method called `calculateArea()` that calculates the area of the rectangle by multiplying its length and width.
+### Bonus Exercise:
+Challenge yourself by adding additional methods to the `FarmAnimal` class, such as `feed()`, `makeSound()`, or `checkHealth()`, and implement functionality for those methods.
 
-### Checklist
-- [ ] Create the `Triangle` class with required fields and methods.
-- [ ] Implement the `isValidTriangle()` method in the Triangle class.
-- [ ] Add the `getTriangleType()` method to determine the type of triangle.
-- [ ] Write the `calculateArea()` method in the Triangle class.
-- [ ] Create the `Rectangle` class with necessary fields and methods.
-- [ ] Implement the `calculateArea()` method in the Rectangle class.
+### Final Checklist
+- Define and implement the `FarmAnimal` class with instance fields and a constructor.
+- Create instances of farm animals in the `main` method and assign values to their fields.
+- Implement the `printInfo()` method to display the animal information.
+- Interact with the animals by calling the `printInfo()` method in the `main` method.
 
-If you encounter any bugs or issues while working on this assignment, please submit a new issue with a detailed description. 
-
-This exercise was modeled after an original task created by [Your Name] ([your.email@domain.com](mailto:your.email@domain.com)), Education Assistant.
-# Determine the Shape\n\nIn this assignment, you will work with Java classes to determine the types of shapes - triangles and rectangles. You will practice using `if` and `else` statements, as well as writing methods to calculate the area of shapes.\n\n### Deadline\nThis assignment should be completed by the due date of **Friday, 30th September**.\n\n### Instructions\nRefer to the course instructions for information on how to complete and submit the assignment.\n\n### Preparation\nMake sure to review the course material on object-oriented programming and class design in Java.\n\n### Learning Goals\n\n1. Understanding branching logic (`if` and `else` statements).\n2. Implementing class constructors and methods.\n3. Utilizing mathematical formulas to calculate areas of shapes.\n\n### Assignment\n\n#### Exercise 1.0 - Triangle Class\nStart by creating a new Java class called `Triangle` in the provided `src` directory. The `Triangle` class should have three fields of type `int` representing the sides of the triangle - `side1`, `side2`, and `side3`. Create a constructor for the `Triangle` class that initializes these three sides using three integer parameters.\n\n#### Exercise 1.1 - Valid Triangle Check\nImplement a method in the `Triangle` class called `isValidTriangle()` that returns a `boolean` value indicating whether the three sides of the triangle form a valid triangle according to the *triangle inequality* principle. The method should return `true` if the sides can form a triangle, and `false` otherwise.\n\n#### Exercise 1.2 - Triangle Type\nAdd a method called `getTriangleType()` in the `Triangle` class that returns a `String` representing the type of triangle based on its sides - \"Equilateral\" for all sides equal, \"Isosceles\" for two sides equal, and \"Scalene\" for no sides equal.\n\n#### Exercise 1.3 - Triangle Area Calculation\nNow, implement a method `calculateArea()` in the `Triangle` class that calculates the area of the triangle using Heron's formula. You can create a helper method to calculate the semi-perimeter for this calculation.\n\n#### Exercise 2.0 - Rectangle Class\nCreate a new Java class called `Rectangle` in the `src` directory. The `Rectangle` class should have two fields representing the length and width of the rectangle. Add a constructor to initialize these two fields using integer parameters.\n\n#### Exercise 2.1 - Rectangle Area Calculation\nIn the `Rectangle` class, implement a method called `calculateArea()` that calculates the area of the rectangle by multiplying its length and width.\n\n### Checklist\n- [ ] Create the `Triangle` class with required fields and methods.\n- [ ] Implement the `isValidTriangle()` method in the Triangle class.\n- [ ] Add the `getTriangleType()` method to determine the type of triangle.\n- [ ] Write the `calculateArea()` method in the Triangle class.\n- [ ] Create the `Rectangle` class with necessary fields and methods.\n- [ ] Implement the `calculateArea()` method in the Rectangle class.\n\nIf you encounter any bugs or issues while working on this assignment, please submit a new issue with a detailed description. \n\nThis exercise was modeled after an original task created by [Your Name] ([your.email@domain.com](mailto:your.email@domain.com)), Education Assistant.
+### Acknowledgment
+This custom task was created for you with the farm animal theme by your dedicated Java teacher. Good luck with the farmyard challenge!
