@@ -39,14 +39,14 @@ jobs:
           theme="${{ needs.parse-issue-title.outputs.result }}"
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "content<<$EOF" >> "$GITHUB_ENV"
-          python .github/workflows/handle_more.py ${{ secrets.OPENAI_TOKEN }} README.md theme >> "$GITHUB_ENV"
+          python .github/workflows/handle_more.py README.md theme >> "$GITHUB_ENV"
           echo "$EOF" >> "$GITHUB_ENV"
           fi
 
       - name: update README
        uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.API_TOKEN }}
+          github-token: ${{ secrets.CREATE_TOKEN }}
           script: |
             github.rest.repos.createOrUpdateFileContents({
               owner: context.repo.owner,
@@ -54,17 +54,4 @@ jobs:
               path: "README.md",
               message: "Updated README.md",
               content: "${{ env.content }}",
-              sha: 
             })
-
-
-
-
-
-              github.rest.issues.update({
-                issue_number: "${{ github.event.issue.number }}",
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: "${{ env.title }}",
-                body: "${{ env.body }}",
-              });

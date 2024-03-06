@@ -5,8 +5,8 @@ import json
 
 import base64
 
-def main(key, file_path, theme):
-    openai.api_key = key
+def main(file_path, theme):
+    # openai.api_key = key
 
     with open(file_path, 'w+') as file:
         readme = file.read()
