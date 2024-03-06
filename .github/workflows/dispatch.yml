@@ -24,9 +24,10 @@ jobs:
   get-content:
     runs-on: ubuntu-latest
     outputs:
-      result: ${{ steps.get-content.outputs.result }}
+      result: ${{ steps.get-sha.outputs.result }}
     steps:
       - name: get sha
+        id: get-sha
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -40,7 +41,7 @@ jobs:
               const sha = result.data.sha;
               return sha;
             })
-          result-encoding: string
+          result-encoding: base64
 
   dispatch-to-handler:
     needs: [parse-issue-title, get-content]
