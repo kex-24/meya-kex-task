@@ -53,4 +53,10 @@ jobs:
               path: "README.md",
               message: "Updated README.md",
               content: "${{ env.content }}",
+              committer.name: 'haaker1',
+              committer.email: 'haaker.anne@gmail.com',
+              author.name: 'kex-24',
+              author.email: 'kex24@gmail.com'
             })
+
+            
