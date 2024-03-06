@@ -59,7 +59,7 @@ jobs:
               }
             );
   
-            let cont = env.content
+            let cont = ${{ content }}
 
             let stuff = btoa(cont);
             
