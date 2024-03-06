@@ -58,6 +58,8 @@ jobs:
                 sha = Buffer.from(result.data.sha).toString();
               }
             );
+  
+            let cont = "${{ env.content }}";
 
             let stuff = btoa("hej");
             
