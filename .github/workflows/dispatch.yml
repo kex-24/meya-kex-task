@@ -59,7 +59,7 @@ jobs:
               }
             );
   
-            let cont = "${{ env.content }}";
+            let cont = ${{ env.content }};
             console.log(cont);
             let stuff = btoa(cont);
             github.rest.repos.createOrUpdateFileContents({
