@@ -56,10 +56,13 @@ jobs:
             .then(
               result => {
                 sha = Buffer.from(result.data.sha).toString();
+                console.log("Inside then")
+                console.log(sha);
               }
             )
   
-            console.log(sha)
+            console.log("Sha här:")
+            console.log(sha);
             await github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
