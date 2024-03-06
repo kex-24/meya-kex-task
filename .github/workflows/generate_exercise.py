@@ -20,9 +20,9 @@ def main(key, model_task, theme):
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo-0125",
             messages=[
-                {"role": "system", "content": "You are a teacher that wants to help a student by extending their programming task with an exercise. Here is the model task:"},
+                {"role": "system", "content": "You are a teacher that wants to help a student by creating a personalized programming task that explores the same core concepts. To help the student relate it will be personalized. Here is the model task:"},
                 {"role": "assistant", "content": model},
-                {"role": "assistant", "content": "Provide an exercise that imitates and goes through the same exercises as the provided model task but has the following theme:"},
+                {"role": "assistant", "content": "Provide an exercise that imitates and goes through the same programming conepts as the provided model task. However it should instead of the provided theme use the following theme:"},
                 {"role": "assistant", "content": theme},
                 {"role": "assistant", "content": "Format the exercise in markdown similar to the model task except don't use emojis."},
             ]
@@ -30,15 +30,7 @@ def main(key, model_task, theme):
         
         print(response.choices[0].message.content)
 
-        fix_apostrophe = (response.choices[0].message.content).replace("\'","'")
-        remove_quotes = json.dumps(fix_apostrophe)[1:-1]
-
-        print(remove_quotes)
-
-    # Test write
-    f = open("testOutput.txt", "w")
-    f.write(fix_apostrophe)
-    f.close()
+    # end of function
     
     
 if __name__ == "__main__":

@@ -62,18 +62,18 @@ jobs:
             const cont = process.env.content
             
             github.rest.repos.createOrUpdateFileContents({
-              owner: "kex-24",
-              repo: "kex-24",
+              owner: "context.repo.owner",
+              repo: "context.repo.repo",
               path: "README.md",
               message: "Updated README.md",
               content: btoa(cont),
               committer: {
-                name: "haaker1",
-                email: "haaker.anne@gmail.com"
+                name: context.actor,
+                email: context.actor
               },
               author: {
-                name: "haaker1",
-                email: "haaker.anne@gmail.com"
+                name: "Chatty",
+                email: "chat@GPT.com"
               },
               sha: sha
             });
