@@ -41,7 +41,6 @@ jobs:
           echo "content<<$EOF" >> "$GITHUB_ENV"
           python .github/workflows/generate_exercise.py README.md theme >> "$GITHUB_ENV"
           echo "$EOF" >> "$GITHUB_ENV"
-          fi
 
       - name: update README
         uses: actions/github-script@v6
