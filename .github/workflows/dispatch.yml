@@ -39,7 +39,7 @@ jobs:
           theme="${{ needs.parse-issue-title.outputs.result }}"
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
           echo "content<<EOF" >> "$GITHUB_ENV"
-          python .github/workflows/generate_exercise.py README.md $theme >> "$GITHUB_ENV"
+          python .github/workflows/generate_exercise.py ${{ secrets.OPENAI_TOKEN }} model-task.md $theme >> "$GITHUB_ENV"
           echo "EOF" >> "$GITHUB_ENV"
 
       - name: update README
