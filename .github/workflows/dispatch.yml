@@ -70,7 +70,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            let sha = "${{ needs.get-content.outputs.result }}";
+            let sha = ${{ needs.get-content.outputs.result }};
             console.log(sha);
             await github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
