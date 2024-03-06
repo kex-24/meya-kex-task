@@ -60,17 +60,13 @@ jobs:
             );
 
             const cont = process.env.content
-            console.log(cont)
-            console.log('ngt')
-            console.log(btoa(cont))
-
             
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: btoa('något annat'),
+              content: btoa(cont),
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"

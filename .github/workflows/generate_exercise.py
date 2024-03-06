@@ -35,7 +35,7 @@ def main(file_path, theme):
     #     remove_quotes = json.dumps(fix_apostrophe)[1:-1]
     #     print(remove_quotes)
 
-    s = "Python Hello World!"
+    s = theme
     print(s)
     
     
