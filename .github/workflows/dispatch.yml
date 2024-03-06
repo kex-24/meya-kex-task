@@ -61,13 +61,13 @@ jobs:
   
             let cont = "${{ env.content }}";
             console.log(cont);
-            console.log(btoa(cont));
+            let stuff = btoa(cont);
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: btoa("hejhej"),
+              content: stuff,
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"
