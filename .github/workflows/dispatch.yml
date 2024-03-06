@@ -58,6 +58,7 @@ jobs:
                 sha = Buffer.from(result.data.sha).toString();
               }
             ).then(
+              console.log(sha);
               github.rest.repos.createOrUpdateFileContents({
                 owner: "kex-24",
                 repo: "kex-24",
