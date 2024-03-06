@@ -33,12 +33,12 @@ def main(key, model_task, theme):
 
         fix_apostrophe = (response.choices[0].message.content).replace("\'","'")
         remove_quotes = json.dumps(fix_apostrophe)[1:-1]
-        
+
         print(remove_quotes)
 
     # Test write
     f = open("testOutput.txt", "w")
-    f.write(remove_quotes)
+    f.write(fix_apostrophe)
     f.close()
     
     
