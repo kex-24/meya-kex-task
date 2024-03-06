@@ -24,7 +24,7 @@ def main(key, model_task, theme):
                 {"role": "assistant", "content": model},
                 {"role": "assistant", "content": "Provide an exercise that imitates and goes through the same exercises as the provided model task but has the following theme:"},
                 {"role": "assistant", "content": theme},
-                {"role": "assistant", "content": "Format the exercise in markdown similar to the model task"},
+                {"role": "assistant", "content": "Format the exercise in markdown similar to the model task except don't use emojis."},
             ]
         )
         
