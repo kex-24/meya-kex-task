@@ -43,7 +43,7 @@ jobs:
           echo "$EOF" >> "$GITHUB_ENV"
 
       - name: update README
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -54,12 +54,12 @@ jobs:
               message: "Updated README.md",
               content: "${{ env.content }}",
               committer: {
-                name: "Octokit Bot",
-                email: "your-email",
+                name: "kexxers",
+                email: "24@kex.se",
               },
               author: {
-                name: "Octokit Bot",
-                email: "your-email",
+                name: "kexxers",
+                email: "24@kex.se",
               }
             })
 
