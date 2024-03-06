@@ -59,14 +59,14 @@ jobs:
               }
             );
 
-            const {content} = btoa(process.env.content)
+            const {cont} = btoa(process.env.content)
             
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: `${content}`,
+              content: `${cont}`,
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"
