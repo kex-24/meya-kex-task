@@ -38,9 +38,12 @@ jobs:
         run: |
           theme="${{ needs.parse-issue-title.outputs.result }}"
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-          echo "content<<$EOF" >> "$GITHUB_ENV"
-          python .github/workflows/generate_exercise.py README.md theme >> "$GITHUB_ENV"
-          echo "$EOF" >> "$GITHUB_ENV"
+          {
+            echo 'content<<$EOF'
+            python .github/workflows/generate_exercise.py README.md theme
+            echo $EOF
+          } >> "$GITHUB_ENV"
+          
 
       - name: update README
         uses: actions/github-script@v6
@@ -64,7 +67,7 @@ jobs:
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: btoa( ${{ env.content }} ),
+              content: "${{env.content}}",
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"
