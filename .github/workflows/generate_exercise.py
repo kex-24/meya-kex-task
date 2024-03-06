@@ -29,8 +29,11 @@ def main(key, model_task, theme):
                 {"role": "assistant", "content": "Format the exercise in markdown and make sure it is a valid JSON string"},
             ]
         )
-        fix_apostrophe = response.choices[0]['message']['content'].replace("\'","'")
+        print(response.choices[0].message.content)
+
+        fix_apostrophe = (response.choices[0].message.content).replace("\'","'")
         remove_quotes = json.dumps(fix_apostrophe)[1:-1]
+        
         print(remove_quotes)
 
     # Test write
