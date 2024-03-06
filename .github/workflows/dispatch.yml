@@ -26,20 +26,45 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.parse-issue-title.outputs.result != 'none'
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
         
-      # - name: Install dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install -r .github/workflows/requirements.txt
-      - name: Create repo
-        uses: actions/github-script@v6
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/workflows/requirements.txt
+
+      - name: generate exercise
+        run: |
+          theme="${{ needs.parse-issue-title.outputs.result }}"
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "content<<$EOF" >> "$GITHUB_ENV"
+          python .github/workflows/handle_more.py ${{ secrets.OPENAI_TOKEN }} README.md theme >> "$GITHUB_ENV"
+          echo "$EOF" >> "$GITHUB_ENV"
+          fi
+
+      - name: update README
+       uses: actions/github-script@v6
         with:
-          github-token: '${{ secrets.MY_TOKEN }}'
+          github-token: ${{ secrets.API_TOKEN }}
           script: |
-            github.rest.repos.createFork({
-            owner: 'kex-24',
-            repo: 'kex-24'
-            });
-      
+            github.rest.repos.createOrUpdateFileContents({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: "README.md",
+              message: "Updated README.md",
+              content: "${{ env.content }}",
+              sha: 
+            })
+
+
+
+
+
+              github.rest.issues.update({
+                issue_number: "${{ github.event.issue.number }}",
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: "${{ env.title }}",
+                body: "${{ env.body }}",
+              });
