@@ -37,13 +37,10 @@ jobs:
       - name: generate exercise
         run: |
           theme="${{ needs.parse-issue-title.outputs.result }}"
-          {
-            EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-            echo 'content<<$EOF'
-            python .github/workflows/generate_exercise.py README.md theme
-            echo $EOF
-          } >> "$GITHUB_ENV"
-          
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "content<<$EOF" >> "$GITHUB_ENV"
+          python .github/workflows/generate_exercise.py README.md theme >> "$GITHUB_ENV"
+          echo "$EOF" >> "$GITHUB_ENV"
 
       - name: update README
         uses: actions/github-script@v6
@@ -62,7 +59,7 @@ jobs:
               }
             );
   
-            let cont = "${{ env.content }}"
+            let cont = "${{ env.content }}";
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
