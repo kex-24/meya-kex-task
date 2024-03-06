@@ -38,7 +38,8 @@ jobs:
               path: "README.md"
             })
             .then(result => {
-              const sha = result.data.sha;
+              const sha = Buffer.from(result.data.sha).toString();
+              console.log(sha);
               return sha;
             })
           result-encoding: string
