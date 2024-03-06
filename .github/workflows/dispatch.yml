@@ -43,7 +43,7 @@ jobs:
           echo "$EOF" >> "$GITHUB_ENV"
 
       - name: update README
-        uses: actions/github-script@v7
+        uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -60,5 +60,8 @@ jobs:
                 console.log(sha);
               }
             );
-
+  
+            console.log("Sha outside:");
+            console.log(sha);
+            
             
