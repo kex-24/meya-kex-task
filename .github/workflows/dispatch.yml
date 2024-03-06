@@ -31,13 +31,15 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const content = github.rest.repos.getContent({
+            const content = await github.rest.repos.getContent({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md"
             })
-            let result = content.sha;
-            return result;
+            .then(result => {
+              const sha = result.data.sha;
+              return sha;
+            })
           result-encoding: string
 
   dispatch-to-handler:
