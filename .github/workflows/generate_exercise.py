@@ -19,8 +19,8 @@ def main(key, model_task, theme):
     if debug:
         sys.stdout.write("This is a test\nWith a new line")
     else:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5",
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo-0125",
             messages=[
                 {"role": "system", "content": "You are a teacher that wants to help a student by extending their programming task with a new exercise. Here is their overall task:"},
                 {"role": "assistant", "content": model},
