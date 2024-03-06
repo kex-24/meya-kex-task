@@ -38,7 +38,7 @@ jobs:
               path: "README.md"
             })
             .then(result => {
-              const sha = Buffer.from(result.data.sha, base64).toString();
+              const sha = Buffer.from(result.data.sha, 'base64').toString();
               console.log(sha);
               return sha;
             })
@@ -72,7 +72,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            let SHA = btoa($SHA);
+            let sha_ = btoa($SHA);
             await github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
@@ -87,7 +87,7 @@ jobs:
                 name: "haaker1",
                 email: "haaker.anne@gmail.com",
               },
-              sha: $SHA
+              sha: sha_
             })
 
             
