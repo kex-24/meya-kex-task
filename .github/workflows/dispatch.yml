@@ -59,10 +59,11 @@ jobs:
               }
             );
   
-            let cont = ${{ env.content }};
+            let cont = "${{ env.content }}";
             let bajs = cont.toString();
             console.log(bajs);
             let stuff = btoa(bajs);
+            
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
