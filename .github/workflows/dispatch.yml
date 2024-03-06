@@ -38,9 +38,9 @@ jobs:
         run: |
           theme="${{ needs.parse-issue-title.outputs.result }}"
           EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-          echo "content<<$EOF" >> "$GITHUB_ENV"
+          echo "content<<EOF" >> "$GITHUB_ENV"
           python .github/workflows/generate_exercise.py README.md theme >> "$GITHUB_ENV"
-          echo "$EOF" >> "$GITHUB_ENV"
+          echo "EOF" >> "$GITHUB_ENV"
 
       - name: update README
         uses: actions/github-script@v6
@@ -60,12 +60,14 @@ jobs:
             );
   
             let cont = "${{ env.content }}";
+            console.log(cont);
+            console.log(btoa(cont));
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
               message: "Updated README.md",
-              content: btoa(cont),
+              content: btoa("hejhej"),
               committer: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com"
