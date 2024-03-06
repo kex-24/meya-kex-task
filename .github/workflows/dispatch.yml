@@ -65,7 +65,7 @@ jobs:
             console.log(`${cont}`)
 
             
-            gith  ub.rest.repos.createOrUpdateFileContents({
+            github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
               path: "README.md",
