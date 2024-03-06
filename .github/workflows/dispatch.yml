@@ -85,7 +85,7 @@ jobs:
               author: {
                 name: "haaker1",
                 email: "haaker.anne@gmail.com",
-              }
+              },
               sha: sha
             })
 
