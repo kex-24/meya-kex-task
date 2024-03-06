@@ -70,6 +70,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            let sha = "${{ needs.get-content.outputs.result }}";
+            console.log(sha);
             await github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
               repo: "kex-24",
@@ -77,14 +79,14 @@ jobs:
               message: "Updated README.md",
               content: "${{ env.content }}",
               committer: {
-                name: "kexxers",
-                email: "24@kex.se",
+                name: "haaker1",
+                email: "haaker.anne@gmail.com",
               },
               author: {
-                name: "kexxers",
-                email: "24@kex.se",
+                name: "haaker1",
+                email: "haaker.anne@gmail.com",
               }
-              sha: "${{ needs.get-content.outputs.result }}"
+              sha: sha
             })
 
             
