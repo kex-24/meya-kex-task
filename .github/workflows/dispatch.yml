@@ -61,7 +61,7 @@ jobs:
   
             let cont = env.content
 
-            let stuff = btoa("hej");
+            let stuff = btoa(cont);
             
             github.rest.repos.createOrUpdateFileContents({
               owner: "kex-24",
