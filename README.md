@@ -1,73 +1,31 @@
-# Programming Task: The Magical Library
+## Customized Task for Programming Practice
 
-Welcome to the second exercise of this programming course! In this task, you will delve into the world of magical libraries and practice modeling objects in Java.
+### Task Description
+In a magical forest called "Code Woods," there are mythical creatures known as "Codebeasts." Your task is to model these Codebeasts in Java using classes and objects. 
 
-### Deadline
-Complete this task before the specified due date.
+#### Task Steps:
+- Create a Java class called `Codebeast` in the `src` folder.
+- Define the following fields for the `Codebeast` class:
+  - `String name`
+  - `int level`
+  - `int healthPoints`
+  - `int attackPower`
+  - `boolean isDefeated`
+- Implement a constructor in the `Codebeast` class that takes all the fields as arguments and initializes them.
+- Implement getter and setter methods for all the fields in the `Codebeast` class.
+- Create three instances of the `Codebeast` class using the constructor.
+- Print information about each Codebeast using a method called `displayInfo()` that prints all the details of the Codebeast.
+- Implement an `attack()` method in the `Codebeast` class that takes another `Codebeast` as a parameter and simulates an attack. The attack should decrease the opponent's health points and eventually mark them as defeated (if their health points reach 0).
 
-### Instructions
-Follow the instructions carefully, and if you encounter any issues, feel free to seek assistance.
+### Task Checklist
+- [ ] Create the `Codebeast` class with the specified fields.
+- [ ] Implement the constructor and getter/setter methods for the `Codebeast` class.
+- [ ] Create instances of the `Codebeast` class using the constructor.
+- [ ] Implement the `displayInfo()` method to print all details of a Codebeast.
+- [ ] Implement the `attack()` method to simulate attacks between Codebeasts.
 
-### Preparation
-Read and answer all questions in the relevant module about modeling classes in Java.
-
-### Learning Goals
-- Designing Java classes
-- Adding instance fields
-- Creating constructors
-- Implementing getter and setter methods
-- Using the dot operator to access object fields
-- Implementing a simple method in a class
-
-### Troubleshooting Guide
-If you have any questions or face difficulties, follow these steps:
-1. Check for posted issues in the course materials.
-2. If your question is not addressed, create a new issue with a clear title.
-3. Seek help from the course teaching assistants during the designated lab hours.
-
-### Assignment
-
-In the enchanting realm of magical libraries, there exist mystical tomes that hold arcane knowledge. Your task is to model these magical tomes in Java!
-
-### Task 1: Creating a Tome Class
-
-1. Create a new Java file named `Tome.java` in the designated folder.
-2. Define a class named `Tome` within the file.
-3. Add the following instance fields to the `Tome` class:
-   - `String title`
-   - `int pages`
-   - `String author`
-   - `boolean borrowed`
-4. Implement a constructor for the `Tome` class that initializes the fields.
-5. Create setter and getter methods for each field in the `Tome` class.
-
-### Task 2: Using the Tome Class
-
-1. Instantiate three magical tomes objects using the `Tome` class constructor with different values.
-2. Print out the information of each tome using the getter methods.
-3. Implement a method in the `Tome` class named `displayInfo()` that prints out all relevant information about the tome.
-
-### Task 3: Library Interactions
-
-1. Implement a method in the `Tome` class called `borrowTome()` that changes the `borrowed` status to true.
-2. Implement a method in the `Tome` class named `returnTome()` that sets the `borrowed` status back to false.
-3. Create instances of tomes and simulate borrowing and returning actions by invoking these methods.
-
-### Task 4: Variable Shadowing
-
-Study the examples provided regarding variable shadowing in Java. Be prepared to explain a fix for variable shadowing during class discussions.
-
-### Checklist
-- [ ] Define the `Tome` class with instance fields.
-- [ ] Implement a constructor and setter/getter methods in the `Tome` class.
-- [ ] Instantiate three tomes objects, display their information, and use the `displayInfo()` method.
-- [ ] Implement the `borrowTome()` and `returnTome()` methods in the `Tome` class.
-- [ ] Study the variable shadowing examples.
-
-### Bugs or Questions?
-If you encounter any bugs or have questions related to this exercise, please create a new issue with a descriptive title.
+### Submitting the Task
+Once you have completed all the steps, ensure that your code compiles without any errors. Submit your Java file containing the `Codebeast` class along with a brief explanation of your implementation.
 
 ### Acknowledgment
-This task was created by [Your Name] and [Your Email] for the programming course.
-
----
+This personalized task was created for you by your dedicated teacher to help you practice classes and objects in Java programming. Happy coding!
