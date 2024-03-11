@@ -1,46 +1,73 @@
-# Welcome to the Farmyard Challenge!
+# Programming Task: The Magical Library
 
-In this exercise, you will dive into the world of farm animals and create a Java class to model various creatures that reside on a farm.
+Welcome to the second exercise of this programming course! In this task, you will delve into the world of magical libraries and practice modeling objects in Java.
 
 ### Deadline
-Please complete this task before the upcoming exercise on **Monday, 3rd of November**.
+Complete this task before the specified due date.
 
 ### Instructions
-For detailed instructions on how to complete and submit the assignment, refer to the course website.
+Follow the instructions carefully, and if you encounter any issues, feel free to seek assistance.
 
 ### Preparation
-Make sure to review the concepts of Object-Oriented Programming and class design before attempting this task. You can explore the relevant OLI material or official Java documentation to refresh your knowledge.
+Read and answer all questions in the relevant module about modeling classes in Java.
 
+### Learning Goals
+- Designing Java classes
+- Adding instance fields
+- Creating constructors
+- Implementing getter and setter methods
+- Using the dot operator to access object fields
+- Implementing a simple method in a class
 
-### Task Description
+### Troubleshooting Guide
+If you have any questions or face difficulties, follow these steps:
+1. Check for posted issues in the course materials.
+2. If your question is not addressed, create a new issue with a clear title.
+3. Seek help from the course teaching assistants during the designated lab hours.
 
-In the fertile lands of our farm, we have various animals that roam around. Your task is to create a Java class to model these farm animals. To get started, create a new Java file called `FarmAnimal.java` in the `src` folder.
+### Assignment
 
-### Exercise 1: Define the FarmAnimal Class
-Define a class called `FarmAnimal` with the following instance fields:
-- `String name` to store the name of the animal
-- `int age` to store the age of the animal
-- `String sound` to store the sound the animal makes
+In the enchanting realm of magical libraries, there exist mystical tomes that hold arcane knowledge. Your task is to model these magical tomes in Java!
 
-Implement a constructor for the class that takes the name, age, and sound as parameters and initializes the instance fields.
+### Task 1: Creating a Tome Class
 
-### Exercise 2: Create Farm Animals
-In your `main` method, create instances of different farm animals such as cows, chickens, and pigs using the constructor you implemented in Exercise 1. Assign appropriate values to the `name`, `age`, and `sound` fields of each animal.
+1. Create a new Java file named `Tome.java` in the designated folder.
+2. Define a class named `Tome` within the file.
+3. Add the following instance fields to the `Tome` class:
+   - `String title`
+   - `int pages`
+   - `String author`
+   - `boolean borrowed`
+4. Implement a constructor for the `Tome` class that initializes the fields.
+5. Create setter and getter methods for each field in the `Tome` class.
 
-### Exercise 3: Print Animal Information
-Implement a method called `printInfo()` within the `FarmAnimal` class. This method should print out the information about the animal, including its name, age, and the sound it makes.
+### Task 2: Using the Tome Class
 
-### Exercise 4: Interact with the Animals
-In your `main` method, call the `printInfo()` method for each farm animal you created to display their information to the console.
+1. Instantiate three magical tomes objects using the `Tome` class constructor with different values.
+2. Print out the information of each tome using the getter methods.
+3. Implement a method in the `Tome` class named `displayInfo()` that prints out all relevant information about the tome.
 
-### Bonus Exercise:
-Challenge yourself by adding additional methods to the `FarmAnimal` class, such as `feed()`, `makeSound()`, or `checkHealth()`, and implement functionality for those methods.
+### Task 3: Library Interactions
 
-### Final Checklist
-- Define and implement the `FarmAnimal` class with instance fields and a constructor.
-- Create instances of farm animals in the `main` method and assign values to their fields.
-- Implement the `printInfo()` method to display the animal information.
-- Interact with the animals by calling the `printInfo()` method in the `main` method.
+1. Implement a method in the `Tome` class called `borrowTome()` that changes the `borrowed` status to true.
+2. Implement a method in the `Tome` class named `returnTome()` that sets the `borrowed` status back to false.
+3. Create instances of tomes and simulate borrowing and returning actions by invoking these methods.
+
+### Task 4: Variable Shadowing
+
+Study the examples provided regarding variable shadowing in Java. Be prepared to explain a fix for variable shadowing during class discussions.
+
+### Checklist
+- [ ] Define the `Tome` class with instance fields.
+- [ ] Implement a constructor and setter/getter methods in the `Tome` class.
+- [ ] Instantiate three tomes objects, display their information, and use the `displayInfo()` method.
+- [ ] Implement the `borrowTome()` and `returnTome()` methods in the `Tome` class.
+- [ ] Study the variable shadowing examples.
+
+### Bugs or Questions?
+If you encounter any bugs or have questions related to this exercise, please create a new issue with a descriptive title.
 
 ### Acknowledgment
-This custom task was created for you with the farm animal theme by your dedicated Java teacher. Good luck with the farmyard challenge!
+This task was created by [Your Name] and [Your Email] for the programming course.
+
+---
